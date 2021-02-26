@@ -3,7 +3,7 @@ import { auth } from '../../firebase';
 import { toast } from 'react-toastify';
 
 const Register = () => {
-    const [email, setEmail] = useState('vishalprakaash@gmail.com');
+    const [email, setEmail] = useState('vishaltheking54.vr@gmail.com');
     const [loading, setLoading] = useState(false);
 
     const handleSubmit = async (e) => {
