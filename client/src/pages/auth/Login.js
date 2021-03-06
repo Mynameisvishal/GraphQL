@@ -6,8 +6,8 @@ import { auth, googleAuthProvider } from '../../firebase';
 
 const Login = () => {
     const { dispatch } = useContext(AuthContext);
-    const [email, setEmail] = useState('gqlreactnode@gmail.com');
-    const [password, setPassword] = useState('gggggg');
+    const [email, setEmail] = useState('vishalprakaash@gmail.com');
+    const [password, setPassword] = useState('123123123');
     const [loading, setLoading] = useState(false);
 
     let history = useHistory();
