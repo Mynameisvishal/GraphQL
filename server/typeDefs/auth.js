@@ -4,4 +4,14 @@ module.exports = gql`
     type Query {
         me: String!
     }
+
+    # custom type
+    type UserCreateResponse {
+        username: String!
+        email: String!
+    }
+
+    type Mutation {
+        userCreate: UserCreateResponse!
+    }
 `;
