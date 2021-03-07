@@ -20,6 +20,7 @@
     "graphql": "^15.0.0",
     "merge-graphql-schemas": "^1.7.7",
     "mongoose": "^5.9.7",
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.2",
+    "shortid": "^2.2.16"
   }
 }
