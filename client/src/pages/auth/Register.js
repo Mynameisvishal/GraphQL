@@ -5,6 +5,7 @@ import AuthForm from '../../components/forms/AuthForm';
 
 const Register = () => {
     const [email, setEmail] = useState('vishaltheking54.vr@gmail.com');
+    const [username,setUsername] = useState('Vishal');
     const [loading, setLoading] = useState(false);
 
     const handleSubmit = async (e) => {
@@ -20,6 +21,7 @@ const Register = () => {
         toast.success(`Email is sent to ${email}. click the link to complete your registration.`);
         // save user email to local storage
         window.localStorage.setItem('emailForRegistration', email);
+        window.localStorage.setItem('GraphqlUsername', username);
         // clear state
         setEmail('');
         setLoading('');
@@ -28,7 +30,8 @@ const Register = () => {
     return (
         <div className="contianer p-5">
             {loading ? <h4 className="text-danger">Loading...</h4> : <h4>Register</h4>}
-            <AuthForm email={email} loading={loading} setEmail={setEmail} handleSubmit={handleSubmit} />
+            <AuthForm email={email} loading={loading} setEmail={setEmail} username={username} setUsername={setUsername}
+            ShowUsername="true" handleSubmit={handleSubmit} />
         </div>
     );
 };

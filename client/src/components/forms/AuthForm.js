@@ -4,13 +4,29 @@ const AuthForm = ({
     email = '',
     password = '',
     loading,
+    username = '',
+    setUsername = (f) => f,
     setEmail = (f) => f,
     setPassword,
     handleSubmit,
     showPasswordInput = false,
-    hideEmailInput = false
+    hideEmailInput = false,
+    ShowUsername = false
 }) => (
     <form onSubmit={handleSubmit}>
+         {ShowUsername && (
+            <div className="form-group">
+                <label>Username</label>
+                <input
+                    type="text"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    className="form-control"
+                    placeholder="Enter Username"
+                    disabled={loading}
+                />
+            </div>
+        )}
         {!hideEmailInput && (
             <div className="form-group">
                 <label>Email Address</label>

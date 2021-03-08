@@ -16,6 +16,7 @@ import CompleteRegistration from './pages/auth/CompleteRegistration';
 import { AuthContext } from './context/authContext';
 import PrivateRoute from './components/PrivateRoute';
 import Post from './pages/post/Post';
+import UsernameUpdate from './pages/auth/UsernameUpdate';
 
 const App = () => {
     const { state } = useContext(AuthContext);
@@ -42,6 +43,7 @@ const App = () => {
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/complete-registration" component={CompleteRegistration} />
                 <Route exact path="/password/forgot" component={PasswordForgot} />
+                <PrivateRoute exact path="/username/update" component={UsernameUpdate} />
                 <PrivateRoute exact path="/password/update" component={PasswordUpdate} />
                 <PrivateRoute exact path="/profile" component={Profile} />
                 <PrivateRoute exact path="/post/create" component={Post} />

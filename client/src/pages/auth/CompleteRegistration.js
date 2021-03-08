@@ -18,14 +18,16 @@ const USER_CREATE = gql`
 
 const CompleteRegistration = () => {
     const { dispatch } = useContext(AuthContext);
-    const [email, setEmail] = useState('');
+    const [email, setEmail] = useState(' ');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
+    const [username,setUsername] = useState('Vishal');
 
     let history = useHistory();
 
     useEffect(() => {
         setEmail(window.localStorage.getItem('emailForRegistration'));
+        setUsername(window.localStorage.getItem('GraphqlUsername'));
     }, [history]);
 
     const [userCreate] = useMutation(USER_CREATE);
@@ -44,9 +46,10 @@ const CompleteRegistration = () => {
             if (result.user.emailVerified) {
                 // remove email from local storage
                 window.localStorage.removeItem('emailForRegistration');
+                window.localStorage.removeItem('GraphqlUsername');
                 let user = auth.currentUser;
                 await user.updatePassword(password);
-
+                
                 // dispatch user with token and email
                 // then redirect
                 const idTokenResult = await user.getIdTokenResult();
@@ -76,6 +79,9 @@ const CompleteRegistration = () => {
                 loading={loading}
                 handleSubmit={handleSubmit}
                 showPasswordInput="true"
+                username={username} 
+                setUsername={setUsername}
+                ShowUsername="true"
             />
         </div>
     );

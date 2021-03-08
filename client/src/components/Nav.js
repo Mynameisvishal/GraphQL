@@ -1,6 +1,6 @@
 import React, { useContext, Fragment } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { auth } from 'firebase';
+import { auth } from '../firebase';
 import { AuthContext } from '../context/authContext';
 
 const Nav = () => {
@@ -8,7 +8,13 @@ const Nav = () => {
     let history = useHistory();
 
     const { user } = state;
-
+    var username;
+    var currentUser = auth.currentUser;
+    if (currentUser) {
+        var username = currentUser.displayName;
+    } 
+    
+    console.log(state.username);
     const logout = () => {
         auth().signOut();
         dispatch({
@@ -40,7 +46,8 @@ const Nav = () => {
                     {user && (
                         <li className="nav-item active">
                             <Link className="nav-link" to="/profile">
-                                Settings
+                               {username ? username: "Settings"}
+                               {/* Settings */}
                             </Link>
                         </li>
                     )}
